@@ -1,6 +1,6 @@
 # Kuark
 
-Kuark is a simple SQL library for Kotlin, based on JDBC.
+Kuark (same pronouncation as "Quark") is a simple SQL library for Kotlin, based on JDBC.
 
 ## Example
 
