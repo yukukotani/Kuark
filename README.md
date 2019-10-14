@@ -58,6 +58,7 @@ println(dslResult)
 
 ## TODO
 
+- [ ] Maven Repo
 - [ ] Add DSL for all of standard queries and attributes
 - [ ] Typesafe schema definition
 - [ ] Documentation
