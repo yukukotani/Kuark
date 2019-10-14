@@ -27,7 +27,7 @@ object Kuark {
         
         return connection.use {
             val scope = ConnectionScope(connection)
-            scope.run(block)
+            scope.run(block).also { connection.commit() }
         }
     }
 }

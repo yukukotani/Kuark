@@ -1,7 +1,5 @@
 package land.mog.kuark
 
-import land.mog.kuark.builder.RawSqlBuilder
-import land.mog.kuark.builder.SQL
 import java.sql.Connection
 import java.sql.ResultSet
 
@@ -33,13 +31,4 @@ class ConnectionScope(val connection: Connection) {
     fun commit() {
         connection.commit()
     }
-}
-
-fun ConnectionScope.raw(block: RawSqlBuilder.() -> String) : SQL {
-    val builder = RawSqlBuilder()
-    val statement = connection.prepareStatement(builder.run(block))
-        .apply { 
-            builder.params.forEachIndexed { index, param -> this.setObject(index + 1, param.value) }
-        }
-    return SQL(statement)
 }
