@@ -40,8 +40,13 @@ fun main() {
     }
 
 // Also we have simple DSL to build typesafe query.
-    val dslResult = Kuark.transaction {
+    Kuark.transaction {
         sql {
+            insert("id" to 3, "text" to "third record") into "test"
+        }
+    }
+    val dslResult = Kuark.transaction {
+        sql{
             select("*") from "test" where { ("id" eq "1") and ("text" eq "first record") }
         }.list { Test(it.getInt(1), it.getString(2)) }
     }
